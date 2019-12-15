@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+  traefik:
+    image: traefik:v2.0
+    command:
+      - "--providers.file.fileName=traefik-dynamic.toml"
+      - "--providers.docker"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.watch=true"
+      - "--entrypoints.http.address=:80"
+      - "--api.insecure=true"
+      - "--log.level=DEBUG"
+      - "--accesslog=true"
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik-dynamic.toml:/traefik-dynamic.toml
+  
+  wagbag:
+    build:
+      context: .
+      args:
+        - NODE_ENV=production
+        - PORT=3000
+    command: [ "npm", "run", "start:debug" ]
+    volumes:
+      - .:/opt/wagbag:delegated
+      - notused:/opt/wagbag/node_modules
+    environment:
+      - NODE_ENV=production
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.wagbag-insecure.entrypoints=http"
+      - "traefik.http.routers.wagbag-insecure.rule=Host(`localhost`)"
+
+volumes:
+  notused:
