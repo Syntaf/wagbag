@@ -1,0 +1,9 @@
+@import '../variables';
+
+.navdrawer.navdrawer-permanent {
+    width: $navBarWidth;
+}
+
+.navbar-content {
+    margin-left: $navBarWidth;
+}

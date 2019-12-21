@@ -1,0 +1,1 @@
+$('#navdrawerDefault').navdrawer('show')

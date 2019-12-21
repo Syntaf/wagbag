@@ -1,3 +1,18 @@
 // Place all the styles related to the dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'components/navbar';
+
+nav {
+    .header {
+        padding: 25px;
+
+        h4 {
+            font-family: 'Dancing Script', cursive;
+            color: #31CD9B;
+            font-weight: bold;
+            font-size: 26px;
+        }
+    }
+}
