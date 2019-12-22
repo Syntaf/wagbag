@@ -33,9 +33,17 @@
 						<tr>
 							<td>Red Rock</td>
 							<td>Gallery</td>
-							<td>Box is starting to show wear</td>
+							<td>Box is starting to show wear, this is also a REALLY REALLY REALLY REALLY long message</td>
 							<td>Grant mercer</td>
 						</tr>
+                        <% @latestStationStatuses.each do |stationStatus| %>
+                            <tr>
+                                <td><%= stationStatus.station.area.name %></td>
+                                <td><%= stationStatus.station.name %></td>
+                                <td><%= stationStatus.notes %></td>
+                                <td><%= stationStatus.user.name %>
+                            </tr>    
+                        <% end %>
 					</table>
 				</div>
 			</div>

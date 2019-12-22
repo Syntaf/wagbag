@@ -24,6 +24,10 @@
 }
 
 .latest-notes-card {
+    max-height: 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
     .card-header {
         text-align: center;
         border: none;
@@ -36,6 +40,13 @@
 
         table {
             margin: 0;
+
+            td {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 270px;
+            }
         }
     }
 }
