@@ -2,8 +2,46 @@
 
 .navdrawer.navdrawer-permanent {
     width: $navBarWidth;
+    background-color: #4E546C;
+
+    h1 {
+        padding: 25px;
+        font-family: 'Dancing Script', cursive;
+        color: #31CD9B;
+        font-weight: bold;
+        font-size: 26px;
+        text-align: center;
+        background-color: #555C78;
+        margin: 0;
+    }
+
+    hr {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    .navigation-links {
+        a {
+            width: 100%;
+            display: inline-block;
+            padding: 25px;
+            color: #60697E;
+            text-decoration: none;
+
+            &.active {
+                color: #2ECEAA;
+            }
+
+            &:hover {
+               color: #2ECEAA 
+            }
+        }
+    }
 }
 
 .navbar-content {
     margin-left: $navBarWidth;
+    background-color: #EEF4F9;
+    padding: 25px;
+    height: 100%;
 }

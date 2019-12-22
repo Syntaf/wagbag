@@ -3,16 +3,39 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import 'components/navbar';
+@import 'components/flexgrid';
 
-nav {
-    .header {
-        padding: 25px;
+.active-stock-card {
+    width: 300px;
+    height: 300px;
+    margin-right: 20px;
+    text-align: center;
 
-        h4 {
-            font-family: 'Dancing Script', cursive;
-            color: #31CD9B;
-            font-weight: bold;
-            font-size: 26px;
+    .card-content {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            font-size: 40px;
+        }
+    }
+}
+
+.latest-notes-card {
+    .card-header {
+        text-align: center;
+        border: none;
+        padding-bottom: 0;
+    }
+
+    .card-content {
+        padding: 0 10px 10px 10px;
+        height: 100%;
+
+        table {
+            margin: 0;
         }
     }
 }
