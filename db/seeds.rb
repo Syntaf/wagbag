@@ -11,9 +11,9 @@ user = User.create([
     { name: 'volunteer01', phone_number: '+10000000001', admin: false }])
 area = Area.create({ name: 'Red Rock'})
 stations = Station.create([
-    { name: 'Calico Hills', area_id: area.id, description: '50 meters south of cannibal crag, wood box', capacity: 25, active: true },
-    { name: 'Black Velvet', area_id: area.id, description: 'Entrance of parking lot, metal box', capacity: 40, active: true },
-    { name: 'The Gallery', area_id: area.id, description: 'Just below the crag below a large boulder', capacity: 15, active: false }])
+    { name: 'Calico Hills', area_id: area.id, description: '50 meters south of cannibal crag, wood box', capacity: 25, count: 25, active: true },
+    { name: 'Black Velvet', area_id: area.id, description: 'Entrance of parking lot, metal box', capacity: 40, count: 40, active: true },
+    { name: 'The Gallery', area_id: area.id, description: 'Just below the crag below a large boulder', capacity: 15, count: 15, active: false }])
 
 # Calico Hills Visits
 StationStatus.create([
