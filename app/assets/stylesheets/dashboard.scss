@@ -39,3 +39,14 @@
         }
     }
 }
+
+.logs-card {
+    margin-right: 20px;
+    min-height: 500px;
+
+    .card-header {
+        text-align: center;
+        border: none;
+        padding-bottom: 0;
+    }
+}
