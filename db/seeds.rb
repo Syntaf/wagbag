@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user = User.create([
-    { name: 'dev', phone_number: '+10000000000', admin: true },
-    { name: 'volunteer01', phone_number: '+10000000001', admin: false }])
+    { name: 'John Smith', phone_number: '+10000000000', admin: true },
+    { name: 'Elane Harper', phone_number: '+10000000001', admin: false }])
 area = Area.create({ name: 'Red Rock'})
 stations = Station.create([
     { name: 'Calico Hills', area_id: area.id, description: '50 meters south of cannibal crag, wood box', capacity: 25, count: 25, active: true },
