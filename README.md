@@ -43,3 +43,24 @@ To utilize binaries like `rake` and `rails`, use the following commands
 # Connect a rails console to the web container
 ~$: docker-compose exec web entrypoint.sh rails c
 ```
+
+### Database Operations
+
+#### Seed
+
+Running `rake db:seed` inside the container will seed the database with development data.
+
+#### Migrate
+
+Running `rake db:migrate` inside of the container will run all pending migrations
+
+#### Reset
+
+Due to rails running inside a composer instance, `rake db:reset` is not available. Instead, inside the container, run:
+
+```
+rake db:drop
+rake db:create
+rake db:migrate
+rake db:seed
+```
