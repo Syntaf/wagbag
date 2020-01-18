@@ -30,19 +30,15 @@
 							<th>Notes</th>
 							<th>Volunteer</th>
 						</tr>
-						<tr>
-							<td>Red Rock</td>
-							<td>Gallery</td>
-							<td>Box is starting to show wear, this is also a REALLY REALLY REALLY REALLY long message</td>
-							<td>Grant mercer</td>
-						</tr>
-                        <% @latestStationStatuses.each do |stationStatus| %>
-                            <tr>
-                                <td><%= stationStatus.station.area.name %></td>
-                                <td><%= stationStatus.station.name %></td>
-                                <td><%= stationStatus.notes %></td>
-                                <td><%= stationStatus.user.name %>
-                            </tr>    
+						<% @latestStationStatuses.each do |stationStatus| %>
+							<% if stationStatus.notes %>
+								<tr>
+									<td><%= stationStatus.station.area.name %></td>
+									<td><%= stationStatus.station.name %></td>
+									<td><%= stationStatus.notes %></td>
+									<td><%= stationStatus.user.name %>
+								</tr>
+							<% end %>
                         <% end %>
 					</table>
 				</div>
@@ -63,18 +59,14 @@
 							<th>Fill Amnt</th>
 							<th>Volunteer</th>
 						</tr>
-						<tr>
-							<td>2018-09-01</td>
-							<td>Hamlet</td>
-							<td>57</td>
-							<td>Irene Yee</td>
-						</tr>
-						<tr>
-							<td>2018-09-05</td>
-							<td>Gallery</td>
-							<td>40</td>
-							<td>Grant mercer</td>
-						</tr>
+						<% @latestStationStatuses.each do |stationStatus| %>
+							<tr>
+								<td><%= localize(stationStatus.created_at, :format => :long) %></td>
+								<td><%= stationStatus.station.name %></td>
+								<td><%= stationStatus.count %></td>
+								<td><%= stationStatus.user.name %></td>
+							</tr>
+						<% end %>
 					</table>
 				</div>
 			</div>
