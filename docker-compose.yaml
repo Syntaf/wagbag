@@ -16,12 +16,13 @@ services:
     image: syntaf/wagbag
     environment:
       - POSTGRES_PASSWORD_FILE=/run/secrets/psql_password
+      - PORT=3001
     secrets:
       - psql_password
     volumes:
       - .:/opt/wagbag
     ports:
-      - "3000:3000"
+      - "3001:3001"
     depends_on:
       - db
 
