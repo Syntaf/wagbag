@@ -31,3 +31,9 @@ secrets:
     file: ./dev-secrets/psql_password.txt
   psql_db:
     file: ./dev-secrets/psql_db.txt
+  twilio_account_sid:
+    file: ./dev-secrets/twilio_account_sid.txt
+  twilio_auth_token:
+    file: ./dev-secrets/twilio_auth_token.txt
+  twilio_phone_number:
+    file: ./dev-secrets/twilio_phone_number.txt

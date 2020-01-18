@@ -8,6 +8,7 @@ end
 gem 'jquery-rails'
 gem 'bootstrap', '4.1.1'
 gem 'material-sass', '4.1.1'
+gem 'twilio-ruby'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.7'
