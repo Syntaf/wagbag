@@ -27,6 +27,9 @@ file_env() {
 }
 
 file_env 'POSTGRES_PASSWORD'
+file_env 'TWILIO_ACCOUNT_SID'
+file_env 'TWILIO_AUTH_TOKEN'
+file_env 'TWILIO_PHONE_NUMBER'
 
 # Exec main process
 exec "$@"

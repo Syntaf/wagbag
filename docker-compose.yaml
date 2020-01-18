@@ -16,9 +16,15 @@ services:
     image: syntaf/wagbag
     environment:
       - POSTGRES_PASSWORD_FILE=/run/secrets/psql_password
+      - TWILIO_ACCOUNT_SID_FILE=/run/secrets/twilio_account_sid
+      - TWILIO_AUTH_TOKEN_FILE=/run/secrets/twilio_auth_token
+      - TWILIO_PHONE_NUMBER_FILE=/run/secrets/twilio_phone_number
       - PORT=3001
     secrets:
       - psql_password
+      - twilio_account_sid
+      - twilio_auth_token
+      - twilio_phone_number
     volumes:
       - .:/opt/wagbag
     ports:

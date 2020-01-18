@@ -10,27 +10,40 @@ Manages the collection and visualization of wagbag stations for SNCC members. Ba
   * `Engine >= 19.03.5`
   * `Compose >= 1.24.1`
 
+* Twilio account w/ one virtual phone number
+
 ### Running locally
 
 1. Clone the repository:
 
-```
-~$: git clone git@github.com:Syntaf/wagbag.git
-```
+    ```
+    ~$: git clone git@github.com:Syntaf/wagbag.git
+    ```
 
-2. Use docker-compose to spin up postgres and rails containers
+2. Create three files inside `./dev-secrets`:
+    - `twilio_account_sid.txt` containing your twilio account SID
+    - `twilio_auth_token.txt` containing your twilio auth token
+    - `twilio_phone_number.txt` containing your twilio phone number.
 
-```
-~$: cd wagbag
-~$: docker-compose up
-```
+    Example contents of _twilio\_account\_sid.txt_:
 
-3. Run pending migrations and seed the database
+    ```
+    AD2e13455506d111172dag6d465fdffd36
+    ```
 
-```
-~$: docker-compose exec web entrypoint.sh rake db:migrate
-~$: docker-compose exec web entrypoint.sh rake db:seed
-```
+3. Use docker-compose to spin up postgres and rails containers
+
+    ```
+    ~$: cd wagbag
+    ~$: docker-compose up
+    ```
+
+4. Run pending migrations and seed the database
+
+    ```
+    ~$: docker-compose exec web entrypoint.sh rake db:migrate
+    ~$: docker-compose exec web entrypoint.sh rake db:seed
+    ```
 
 ### Rails Binaries
 
