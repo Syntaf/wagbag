@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'dashboard#index'
   get '/list', to: 'dashboard#list'
+
+  post '/sms', to: 'sms#inbound'
 end
