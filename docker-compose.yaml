@@ -10,7 +10,20 @@ services:
       - psql_password
       - psql_db
     volumes:
-      - .:/opt/wagbag
+      - ./postgres-data:/var/lib/postgresql/data
+
+  ngrok:
+    image: wernight/ngrok
+    ports:
+      - "4040:4040"
+    command:
+      - /bin/sh
+      - -c
+      - |
+        ngrok http web:3001
+    depends_on:
+      - web
+
   web:
     build: .
     image: syntaf/wagbag

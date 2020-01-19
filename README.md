@@ -2,8 +2,6 @@
 
 Manages the collection and visualization of wagbag stations for SNCC members. Backend consists of a dockerized rails framework hosted through a swarm configuration.
 
-## Getting Started (Contributing)
-
 ### Prerequisites
 
 * Docker Desktop
@@ -12,7 +10,7 @@ Manages the collection and visualization of wagbag stations for SNCC members. Ba
 
 * Twilio account w/ one virtual phone number
 
-### Running locally
+### Getting Started
 
 1. Clone the repository:
 
@@ -20,7 +18,27 @@ Manages the collection and visualization of wagbag stations for SNCC members. Ba
     ~$: git clone git@github.com:Syntaf/wagbag.git
     ```
 
-2. Create three files inside `./dev-secrets`:
+2. Use docker-compose to spin up postgres and rails containers
+
+    ```
+    ~$: cd wagbag
+    ~$: docker-compose up
+    ```
+
+3. Run pending migrations and seed the database
+
+    ```
+    ~$: docker-compose exec web entrypoint.sh rake db:migrate
+    ~$: docker-compose exec web entrypoint.sh rake db:seed
+    ```
+
+4. Visit the app at http://localhost:3001/dashboard
+
+### Working with inbound SMS messages locally
+
+Some additional configuration is needed in order to receive inbound SMS. If you don't need to work with inbound SMS these steps can be skipped, just keep in mind you'll only be able to work with the seeded data. Before following the steps, **ensure you have a Twilio account with an active virtual phone number**
+
+1.  Create three files inside `./dev-secrets`:
     - `twilio_account_sid.txt` containing your twilio account SID
     - `twilio_auth_token.txt` containing your twilio auth token
     - `twilio_phone_number.txt` containing your twilio phone number.
@@ -31,19 +49,11 @@ Manages the collection and visualization of wagbag stations for SNCC members. Ba
     AD2e13455506d111172dag6d465fdffd36
     ```
 
-3. Use docker-compose to spin up postgres and rails containers
+2. Spin up the app with `docker-compose up`
 
-    ```
-    ~$: cd wagbag
-    ~$: docker-compose up
-    ```
+3. Visit `http://localhost:4040/status`. Under the _command\_line_ section you should see a _URL_ field, copy this to your clipboard. This URL will be used by twilio to route inbound SMS messages to your local active dev environment
 
-4. Run pending migrations and seed the database
-
-    ```
-    ~$: docker-compose exec web entrypoint.sh rake db:migrate
-    ~$: docker-compose exec web entrypoint.sh rake db:seed
-    ```
+4. Go to https://www.twilio.com/console and navigate to your phone number
 
 ### Rails Binaries
 
