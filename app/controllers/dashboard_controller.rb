@@ -3,4 +3,8 @@ class DashboardController < ApplicationController
         @activeInventory = Station.sum(:count)
         @latestStationStatuses = StationStatus.joins(:station)
     end
+
+    def list
+        @allStationStatuses = StationStatus.joins(:station)
+    end
 end
