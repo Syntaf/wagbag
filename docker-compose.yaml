@@ -10,7 +10,7 @@ services:
       - psql_password
       - psql_db
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data
+      - postgres_database:/var/lib/postgresql/data:Z
 
   ngrok:
     image: wernight/ngrok
@@ -44,6 +44,10 @@ services:
       - "3001:3001"
     depends_on:
       - db
+
+volumes:
+  postgres_database:
+    external: true
 
 secrets:
   psql_password:

@@ -18,21 +18,27 @@ Manages the collection and visualization of wagbag stations for SNCC members. Ba
     ~$: git clone git@github.com:Syntaf/wagbag.git
     ```
 
-2. Use docker-compose to spin up postgres and rails containers
+2. Create a new docker volume for persistant database storage
 
     ```
-    ~$: cd wagbag
+    ~$ cd wagbag
+    ~$ docker volume create postgres_database
+    ```
+
+3. Use docker-compose to spin up postgres and rails containers
+
+    ```
     ~$: docker-compose up
     ```
 
-3. Run pending migrations and seed the database
+4. Run pending migrations and seed the database
 
     ```
     ~$: docker-compose exec web entrypoint.sh rake db:migrate
     ~$: docker-compose exec web entrypoint.sh rake db:seed
     ```
 
-4. Visit the app at http://localhost:3001/dashboard
+5. Visit the app at http://localhost:3001/dashboard
 
 ### Working with inbound SMS messages locally
 
