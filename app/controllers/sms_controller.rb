@@ -1,5 +1,7 @@
 class SmsController < ApplicationController
+    skip_before_action :verify_authenticity_token
+
     def inbound
-        logger.debug params
+        # TODO
     end
 end
